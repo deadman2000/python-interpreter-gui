@@ -2,8 +2,8 @@ from PyQt5.QtCore import QObject, pyqtProperty
 
 
 class InterpreterModel(QObject):
-    def __init__(self):
-        QObject.__init__(self)
+    def __init__(self, parent=None):
+        QObject.__init__(self, parent)
         self._offset = 0
         self._model = None
 

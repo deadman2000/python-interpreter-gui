@@ -2,8 +2,8 @@ from PyQt5.QtCore import QObject, pyqtProperty, Qt
 
 
 class AreaStyle(QObject):
-    def __init__(self):
-        QObject.__init__(self)
+    def __init__(self, parent=None):
+        QObject.__init__(self, parent)
         self._borderWidth = 2
         self._color = Qt.transparent
         self._borderColor = Qt.black
