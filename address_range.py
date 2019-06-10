@@ -1,4 +1,4 @@
-from PyQt5.QtCore import QObject, pyqtProperty
+from PyQt5.QtCore import QObject, pyqtProperty, pyqtSlot
 
 from area_style import AreaStyle
 
@@ -15,3 +15,7 @@ class AddressRange(QObject):
     @style.setter
     def style(self, value):
         self._style = value
+
+    @pyqtSlot()
+    def reset(self):
+        pass
