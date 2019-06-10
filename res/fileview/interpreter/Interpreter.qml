@@ -24,7 +24,7 @@ DockPanel {
 
         model: InterpreterModel {
             model: currentFile.fileModel
-            //offset: currentFile.cursor.offset
+            offset: currentFile.cursor.offset
         }
     }
 }
