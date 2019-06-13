@@ -10,7 +10,7 @@ ApplicationWindow {
     visible: true
     width: 1200
     height: 768
-    title: qsTr("Hello World")
+    title: qsTr("Interpreter")
 
     property int listTopPadding: 8
 
@@ -46,7 +46,7 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        currentFile.openFile('c:/Windows/explorer.exe')
+        currentFile.openFile("c:/Windows/explorer.exe")
     }
 
     property var currentFile: fileView

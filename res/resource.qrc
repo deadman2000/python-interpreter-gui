@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qtquickcontrols2.conf</file>
+        <file>fonts/CamingoCode.ttf</file>
+        <file>fonts/Hack-Regular.ttf</file>
+        <file>fonts/3270Medium.ttf</file>
+        <file>fonts/Anonymous Pro.ttf</file>
+        <file>fonts/Menlo-Regular.ttf</file>
+        <file>fonts/monaco.ttf</file>
+        <file>fonts/SourceCodeVariable-Roman.ttf</file>
+        <file>fonts/SpaceMono-Regular.ttf</file>
+        <file>icons/ic_add_white_24px.svg</file>
+        <file>icons/ic_arrow_drop_down_black_24px.svg</file>
+        <file>icons/ic_folder_black_24px.svg</file>
+        <file>icons/ic_save_white_24px.svg</file>
+        <file>icons/ic_folder_open_white_24px.svg</file>
+        <file>fonts/DejaVuSansMono.ttf</file>
+        <file>fonts/DroidSansMono.ttf</file>
+    </qresource>
+</RCC>

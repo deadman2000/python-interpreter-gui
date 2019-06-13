@@ -21,6 +21,13 @@ class FileModel(QAbstractListModel):
         self._file = None
         self._mm = None
 
+    def roleNames(self):
+        return {
+            self.AddressRole: b"address",
+            self.HexRole: b"hex",
+            self.TextRole: b"fileText",
+        }
+
     @pyqtProperty(int, notify=rowsChanged)
     def rows(self):
         return self._rowCount
@@ -62,10 +69,3 @@ class FileModel(QAbstractListModel):
             return "".join(chr(v) if 32 <= v < 128 else '.' for v in rowData)
 
         return QVariant()
-
-    def roleNames(self):
-        return {
-            self.AddressRole: b"address",
-            self.HexRole: b"hex",
-            self.TextRole: b"fileText",
-        }

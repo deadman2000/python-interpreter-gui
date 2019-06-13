@@ -1,12 +1,16 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import os
 import sys
 
+from PyQt5.QtCore import QUrl
 from PyQt5.QtGui import QGuiApplication, QFont
 from PyQt5.QtQml import QQmlApplicationEngine, qmlRegisterType
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore
 
+# noinspection PyUnresolvedReferences
+import resource_rc
 from address_range import AddressRange
 from area_style import AreaStyle
 from file_document import FileDocument
@@ -35,6 +39,8 @@ def qt_message_handler(mode, context, message):
 QtCore.qInstallMessageHandler(qt_message_handler)
 
 if __name__ == '__main__':
+    os.environ['QT_QUICK_CONTROLS_FALLBACK_STYLE'] = 'Material'
+
     app = QGuiApplication(sys.argv)
 
     font = QFont("Roboto")
@@ -48,6 +54,6 @@ if __name__ == '__main__':
     engine = QQmlApplicationEngine()
     g = QmlGlobal()
     engine.rootContext().setContextProperty("G", g)
-    engine.load("res/main.qml")
+    engine.load(QUrl("res/main.qml"))
 
     sys.exit(app.exec_())
