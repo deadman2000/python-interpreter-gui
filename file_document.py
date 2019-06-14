@@ -1,9 +1,11 @@
 from PyQt5.QtCore import QObject, pyqtProperty, pyqtSlot, pyqtSignal
+from PyQt5.QtGui import QColor
 from PyQt5.QtQml import QQmlListProperty
 
 from interpreter.formats.win32exe import ExeFormat
 
 from address_range import AddressRange
+from area_style import AreaStyle
 from file_model import FileModel
 from structure_node import StructureNode
 
@@ -54,4 +56,11 @@ class FileDocument(QObject):
     def create_structure(self, meta):
         self._structure = StructureNode(None, value=meta, sections=self._sections)
         self.structureChanged.emit()
+        self.sectionsChanged.emit()
+
+    @pyqtSlot(int, int)
+    def addSection(self, begin, end):
+        section = AddressRange(self, begin=begin, end=end)
+        section.style = AreaStyle(color=QColor(0, 255, 0, 25), borderColor=QColor(0, 255, 0), borderWidth=2)
+        self._sections.append(section)
         self.sectionsChanged.emit()

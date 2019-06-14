@@ -44,7 +44,7 @@ class StructureNode(TreeNode):
         self._value = value
 
         self._range = AddressRange(self, offset, offset + size - 1)
-        self._range.update_isset()
+        self._range.name = name
 
         c = get_next_color()
         bgr = QColor(c)

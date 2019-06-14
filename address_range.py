@@ -17,6 +17,7 @@ class AddressRange(QObject):
         self._shadow = False
         self._name = ''
         self.is_block = False
+        self.update_isset()
 
     @pyqtProperty(int, notify=changed)
     def begin(self):
