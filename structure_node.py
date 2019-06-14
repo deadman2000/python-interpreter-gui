@@ -110,7 +110,7 @@ class StructureNode(TreeNode):
         for n in self._nodes:
             n.unselect()
 
-    @pyqtSlot(int)
+    @pyqtSlot(int, result=AddressRange)
     def getByAddress(self, address):
         if self._range.isSet:
             if not self._range.visible or not self._range.contains(address):
@@ -119,7 +119,7 @@ class StructureNode(TreeNode):
         if self._expanded:
             for n in self._nodes:
                 r = n.getByAddress(address)
-                if n is not None:
+                if r is not None:
                     return r
 
         if self._range.isSet:

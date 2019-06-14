@@ -80,7 +80,7 @@ class AddressRange(QObject):
         self._shadow = value
         self.changed.emit()
 
-    @pyqtProperty(bool, notify=changed)
+    @pyqtProperty('QString', notify=changed)
     def name(self):
         return self._name
 
