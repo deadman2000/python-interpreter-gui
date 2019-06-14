@@ -9,29 +9,11 @@ import ".."
 DockPanel {
     title: "Structure"
 
-    /*buttons: [
-        DockButton {
-            icon: 'qrc:icons/ic_folder_open_white_24px.svg'
-            onClicked: fileDialog.open()
-        }
-    ]
-
-    FileDialog {
-        id: fileDialog
-        title: "Please choose a file"
-        //folder: shortcuts.home
-        nameFilters: ["Structure files (*.json)"]
-        onAccepted: {
-            currentFile.document.loadStructure(fileUrl)
-            currentFile.structure = G.createStructure(currentFile.document);
-        }
-    }*/
-
     CustomTree {
         id: tree
         anchors.fill: parent
-        model: currentFile.structure
+        model: currentFile.document.structure
         onSelectedNodeChanged: currentFile.selectRange(selectedNode)
-        onDoubleClicked: currentFile.focusRange(selectedNode.range())
+        onDoubleClicked: currentFile.focusRange(selectedNode.range)
     }
 }

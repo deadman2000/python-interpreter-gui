@@ -5,11 +5,11 @@ class AreaStyle(QObject):
     colorChanged = pyqtSignal()
     borderColorChanged = pyqtSignal()
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, color=Qt.transparent, borderColor=Qt.black, borderWidth=2):
         QObject.__init__(self, parent)
-        self._borderWidth = 2
-        self._color = Qt.transparent
-        self._borderColor = Qt.black
+        self._borderWidth = borderWidth
+        self._color = color
+        self._borderColor = borderColor
 
     @pyqtProperty(int)
     def borderWidth(self):

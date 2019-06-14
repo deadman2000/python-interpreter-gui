@@ -62,13 +62,13 @@ class TreeNode(QAbstractListModel):
         for n in self._nodes:
             n.update()
 
-    @pyqtSlot('TreeNode')
+    @pyqtSlot('QObject')
     def append(self, node):
         self.insert(len(self._nodes), node)
 
-    @pyqtSlot(int, 'TreeNode')
+    @pyqtSlot(int, 'QObject')
     def insert(self, index, node):
-        print(node.parentNode()) # TODO Check it
+        print('insert', node.parentNode()) # TODO Check it
         if node.parentNode() is not None:
             node.remove()
         node.setParent(self)
@@ -83,7 +83,7 @@ class TreeNode(QAbstractListModel):
     def remove(self):
         self.parentNode().removeChild(self)
 
-    @pyqtSlot('TreeNode')
+    @pyqtSlot('QObject')
     def removeChild(self, node):
         node.setParent(None)
         i = self._nodes.index(node)
@@ -94,18 +94,18 @@ class TreeNode(QAbstractListModel):
 
         self.countChanged.emit()
 
-    @pyqtSlot('TreeNode')
+    @pyqtSlot('QObject')
     def moveBefore(self, target):
         self.remove()
         i = target.parentNode().indexOf(target)
         target.parentNode().insert(i, self)
 
-    @pyqtSlot('TreeNode')
+    @pyqtSlot('QObject')
     def moveAfter(self, target):
         self.remove()
         i = target.parentNode().indexOf(target)
         target.parentNode().insert(i + 1, self)
 
-    @pyqtSlot('TreeNode', result=bool)
+    @pyqtSlot('QObject', result=bool)
     def canAppend(self, node):
         return True

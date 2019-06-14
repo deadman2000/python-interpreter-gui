@@ -26,11 +26,6 @@ class QmlGlobal(QObject):
     def rowHeight(self):
         return self._rowHeight
 
-    @pyqtSlot('QVariant')
-    def createStructure(self, document: FileDocument):
-        if document.structure:
-            return StructureNode(None, document.structure)
-
     @pyqtProperty('QSize', notify=fontChanged)
     def hexLetter(self):
         return self._hexLetter

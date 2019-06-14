@@ -32,7 +32,7 @@ def qt_message_handler(mode, context, message):
     else:
         mode = 'DEBUG'
 
-    print('qt_message_handler: line: %d, func: %s(), file: %s' % (context.line, context.function, context.file))
+    print('%s:%d  %s()' % (context.file.replace('file:///', ''), context.line, context.function))
     print('%s: %s\n' % (mode, message))
 
 

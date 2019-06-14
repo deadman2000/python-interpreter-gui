@@ -19,7 +19,6 @@ DockPanel {
     }
 
     property alias document: document
-    property var structure
     property alias fileModel: document.data
     property alias cursor: cursor
 
@@ -32,12 +31,6 @@ DockPanel {
         cursor.offset = 0
         selection.reset()
         document.openFile(path)
-        refresh()
-    }
-
-    function refresh()
-    {
-        structure = G.createStructure(document)
     }
 
     property int topRow: 0

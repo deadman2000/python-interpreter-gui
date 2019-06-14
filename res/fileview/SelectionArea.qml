@@ -37,8 +37,8 @@ MouseArea {
         if (pressed) {
             selection.begin = Math.min(pressAddress, address)
             selection.end = Math.max(pressAddress, address)
-        } else if (currentFile.structure){
-            var section = currentFile.structure.getByAddress(address)
+        } else if (currentFile.document.structure){
+            var section = currentFile.document.structure.getByAddress(address)
             if (section) {
                 label.showSection(section)
             } else {
